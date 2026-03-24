@@ -17,4 +17,4 @@ calls = 0
 def fn_w_counter()->(int, dict[str, int]):
     global calls
     calls += 1
-    return calls, {_name_: calls }
+    return calls, {__name__: calls }
