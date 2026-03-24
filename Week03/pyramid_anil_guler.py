@@ -1,9 +1,6 @@
 def calculate_pyramid(blocks):
-  height = 0
-  total_blocks = 0
-  
-  while total_blocks + (height + 1) <= blocks:
+    height = 0
+    while blocks >= height + 1:
         height += 1
-        total_blocks += height
-
-  return height
+        blocks -= height
+    return height
