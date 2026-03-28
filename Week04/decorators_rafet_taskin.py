@@ -1,3 +1,7 @@
+import time
+import tracemalloc
+import functools
+
 def performance(func):
     @functools.wraps(func)
     def wrapper(*args, **kwargs):
