@@ -1,4 +1,5 @@
 import time
+import sys
 import tracemalloc
 
 tracemalloc.start()
@@ -9,7 +10,6 @@ def performance(func):
         performance.counter += 1
 
         tracemalloc.reset_peak()
-
         start_time = time.perf_counter()
 
         result = func(*args, **kwargs)
@@ -18,7 +18,9 @@ def performance(func):
         performance.total_time += (end_time - start_time)
 
         _, peak = tracemalloc.get_traced_memory()
-        performance.total_mem += peak
+        obj_size = sys.getsizeof(result)
+
+        performance.total_mem += max(peak, obj_size)
 
         return result
 
