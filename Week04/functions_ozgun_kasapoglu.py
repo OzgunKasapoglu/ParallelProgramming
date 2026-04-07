@@ -24,7 +24,7 @@ _counts = {}
 
 
 def fn_w_counter() -> (int, dict[str, int]):
-    global _total, _counts
+    global _total
     _total += 1
     caller = __name__
     _counts[caller] = _counts.get(caller, 0) + 1
